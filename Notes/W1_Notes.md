@@ -1,7 +1,23 @@
+
 # Week 1 — Python Fundamentals & Core Concepts
 
 ---
+## Table of Contents
 
+1. [Typing & Variables](#1-typing--variables)
+2. [Execution: Running Python & `if __name__ == "__main__":`](#2-execution-running-python--if-__name__--__main__)
+3. [Documentation: Docstrings & Type Hints](#3-documentation-docstrings--type-hints)
+4. [Project Structure: Functions, Modules & Packages](#4-project-structure-functions-modules--packages)
+5. [Numeric & String Types](#5-numeric--string-types)
+6. [Collections: Lists, Tuples, Sets & Dictionaries](#6-collections-lists-tuples-sets--dictionaries)
+7. [Mutability Pitfalls](#7-mutability-pitfalls)
+8. [Control Flow & Iteration](#8-control-flow--iteration)
+9. [Functions: Arguments & Parameters](#9-functions-arguments--parameters)
+10. [Error Handling: try/except & Raising Exceptions](#10-error-handling-tryexcept--raising-exceptions)
+11. [File Operations & Context Managers](#11-file-operations--context-managers)
+12. [Command Line Interfaces (CLI) with Argparse](#12-command-line-interfaces-cli-with-argparse)
+13. [Quick Reference Card](#quick-reference-card)
+---
 # 1. Typing & Variables
 
 ---
