@@ -49,4 +49,4 @@
 * **Advanced Configuration:**
     * **Mutually Exclusive Groups:** Use these when two flags cannot be used at the same time.
     * **Actions:** Use `action="store_true"` for simple boolean switches/flags.
-## [Notes](./Notes/W1_Notes_.md)
+## [Notes](./Notes/W1_Notes.md)
