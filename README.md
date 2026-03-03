@@ -221,3 +221,47 @@
 * **Warnings:** Used to alert users of deprecated features or potential issues without stopping execution.
 ## [Week 6 Notes](./Notes/W6_Notes.md)
 
+## Object Oriented Programming
+# OOP & UML — Bullet Point Summaries
+
+---
+
+## Object-Oriented Programming in Python (Week 9)
+
+- OOP organizes code around "objects" that bundle data (attributes) and behavior (methods) together, replacing messy procedural code where data and functions are scattered and unprotected
+- The five pillars are: Modelization, Encapsulation, Abstraction, Inheritance, and Polymorphism
+- A **class** is a blueprint; an **object** is a specific instance created from it — many objects can come from one class, each with independent data
+- `__init__` is the initializer (not constructor) — it runs automatically when an object is created to set up its starting state
+- `self` refers to the current object instance and is always the first parameter of instance methods — Python passes it automatically
+- **Instance methods** use `self`, **class methods** use `cls` and `@classmethod` (good for alternative constructors), **static methods** use `@staticmethod` and have no access to instance or class data (pure utilities)
+- **Dunder methods** (`__str__`, `__repr__`, `__add__`, etc.) let objects respond to built-in Python operations automatically — always define `__repr__` at minimum
+- `__str__` = user-friendly display; `__repr__` = developer/debug display; if `__str__` is missing, Python falls back to `__repr__`
+- **Encapsulation** bundles data + methods and protects internal state — Python uses `_name` (protected) and `__name` (private/name-mangled) by naming convention, not true enforcement
+- `@property` turns a method into a virtual attribute — clean read access without exposing raw data; add `@x.setter` to allow controlled writes with validation
+- **Abstraction** hides internal complexity behind a simple public interface — users call `tv.channel = 5` without knowing the validation logic running underneath
+- **Composition** ("part-of"): the contained object is created inside and dies with the container (Order → LineItem); **Aggregation** ("has-a"): the contained object exists independently and is passed in from outside (Department → Professor)
+- **Inheritance** ("is-a"): child class gets all parent attributes and methods for free; always call `super().__init__()` in the child's `__init__` or parent attributes won't be created
+- **Polymorphism**: same method name behaves differently per class — lets you write code that works on any object sharing an interface, without caring about its specific type
+- **Abstract Base Classes (ABCs)**: inherit from `ABC` and mark methods with `@abstractmethod` to create a class that cannot be instantiated and forces subclasses to implement specific methods
+
+---
+
+## UML Class Diagrams
+
+- UML class diagrams are visual blueprints showing classes, their attributes, methods, and relationships — used for designing before coding, team communication, and documentation
+- Each class is a rectangle with three sections: class name (top), attributes (middle), methods (bottom)
+- Visibility symbols: `+` public, `-` private, `#` protected, `~` package (not directly used in Python)
+- Always include attribute/parameter types and method return types in diagrams; in most course settings only the public interface is shown
+- Python's `@property` is shown in the methods section with a `~property~` stereotype tag since it behaves like a method despite looking like an attribute
+- **Association** (`──`): a basic "uses" relationship — one class references another with no ownership
+- **Aggregation** (`──◇`): "has-a" weak relationship — the part can exist independently of the whole; hollow diamond on the container side
+- **Composition** (`──◆`): "part-of" strong relationship — the part is created inside and destroyed with the whole; filled diamond on the container side
+- **Inheritance** (`──▷`): "is-a" relationship — hollow arrowhead pointing to the parent class
+- **Multiplicity** labels how many instances participate: `1`, `0..1`, `0..*`, `1..*`, `2..5`
+- Abstract classes use the `<<abstract>>` stereotype; abstract methods are marked with `*`; interfaces use `<<interface>>`
+- Tools: Mermaid (text-based, browser-friendly), PlantUML (more features), pyreverse (auto-generates diagrams from existing Python code)
+- Best practices: start simple and add detail incrementally, show only important relationships, keep diagrams in sync with code using pyreverse, don't over-engineer diagrams for small scripts
+
+## [Week 9 Notes](./Notes/W9_Notes.md)
+
+---
