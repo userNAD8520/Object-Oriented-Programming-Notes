@@ -177,14 +177,22 @@ def func(positional, default=value, *args, keyword_only, **kwargs):
 
 Demonstrate collecting and using variable arguments in the simplest meaningful way.
 
-
-<codapi-snippet engine="python" sandbox="iodide">
-# Paste your Python code here
+```python
+# A function that can add ANY number of numbers
 def add_all(*args):
-    return sum(args)
+    """Sum all positional arguments."""
+    # args is a tuple: (1, 2, 3, ...) 
+    total = 0
+    for num in args:
+        total += num
+    return total
 
-print(add_all(1, 2, 3))
-</codapi-snippet>
+# Call with different numbers of arguments
+print(add_all(1, 2))              # Two args
+print(add_all(1, 2, 3, 4, 5))    # Five args
+print(add_all(10))                # One arg
+print(add_all())                  # Zero args — args is an empty tuple
+```
 
 
 
