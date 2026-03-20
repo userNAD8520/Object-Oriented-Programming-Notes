@@ -177,6 +177,7 @@ def func(positional, default=value, *args, keyword_only, **kwargs):
 
 Demonstrate collecting and using variable arguments in the simplest meaningful way.
 
+
 <codapi-snippet engine="python" sandbox="iodide">
 # Paste your Python code here
 def add_all(*args):
@@ -184,6 +185,7 @@ def add_all(*args):
 
 print(add_all(1, 2, 3))
 </codapi-snippet>
+
 
 
 
