@@ -177,6 +177,20 @@ def func(positional, default=value, *args, keyword_only, **kwargs):
 
 Demonstrate collecting and using variable arguments in the simplest meaningful way.
 
+
+<h3>Interactive Example: *args</h3>
+
+<codapi-snippet engine="python" sandbox="iodide">
+def add_all(*args):
+    total = 0
+    for num in args:
+        total += num
+    return total
+
+print(add_all(1, 2, 3, 4, 5))
+</codapi-snippet>
+
+
 ```python
 # A function that can add ANY number of numbers
 def add_all(*args):
