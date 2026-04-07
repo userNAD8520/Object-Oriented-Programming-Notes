@@ -388,3 +388,70 @@
 ## [Week 9 Notes](./Notes/W9_Notes.md)
 
 ---
+
+# Inheritance & ABCs — Summary Bullet Points
+
+## 1. Inheritance
+- A **subclass** (child) automatically receives all attributes and methods from a **superclass** (parent)
+- Syntax: `class Child(Parent):`
+- Solves **code duplication** — shared logic lives in one parent class (DRY principle)
+- Models **IS-A** relationships: "A Dog is an Animal" → `class Dog(Animal)`
+- All Python classes implicitly inherit from `object`
+- Inheritance is **transitive**: if `Dog → Animal → object`, then `Dog` is also an `object`
+- If "X is a Y" doesn't sound natural, use **composition** instead of inheritance
+
+## 2. `super().__init__()` — Parent Constructor
+- `super()` returns a proxy to the parent class, letting you call its methods
+- `super().__init__(...)` runs the parent's constructor to set up foundational attributes
+- **Without it**, parent attributes (e.g., `self._name`) are never created → `AttributeError`
+- **Rule of thumb**: always call `super().__init__(...)` as the **first line** of the child's `__init__`
+- Only pass arguments the parent expects — not child-specific ones
+
+## 3. Method Overriding
+- A subclass **overrides** a parent method by defining a method with the **same name**
+- Python uses the **most specific version first** (child before parent)
+- Two common parent patterns:
+  - **Placeholder** that raises `NotImplementedError` (child must replace it)
+  - **Generic default** that a child specializes
+- Beware of **typos** — `def speek()` creates a new method instead of overriding `speak()`
+
+## 4. Extending a Parent Method with `super()`
+- **Extension** = run the parent's method + add extra steps (vs. full override = replace entirely)
+- Pattern: `result = super().method()` → then add child-specific logic
+- Follows DRY — reuses parent logic, child only adds what's unique
+- `super()` can be called at any point in the method, not just the first line (unlike `__init__`)
+
+## 5. Polymorphism
+- **Polymorphism** = same method call, different behaviour depending on the object's class
+- Lets one loop/function work with **any subclass** uniformly — no type-checking needed
+- **Future-proof**: adding a new subclass requires zero changes to existing code
+- Python uses **duck typing** — any object with the right method works, inheritance not strictly required
+
+## 6. `isinstance()`
+- `isinstance(obj, ClassName)` → `True` if `obj` is that class **or any subclass** of it
+- `isinstance(obj, (ClassA, ClassB))` → `True` if `obj` is an instance of **either**
+- Use it to safely access **subclass-specific** attributes or guard **dunder methods** (`__eq__`)
+- `isinstance()` respects inheritance; `type(obj) == Class` does **not** (almost always prefer `isinstance`)
+- `NotImplemented` (return value) ≠ `NotImplementedError` (exception) — common beginner mix-up
+
+## 7. Abstract Base Classes (ABCs)
+- **ABC** = a strict blueprint that **cannot be instantiated** directly
+- Import: `from abc import ABC, abstractmethod`
+- `@abstractmethod` forces subclasses to implement a method — error at **object creation**, not runtime
+- **Concrete methods** in an ABC are inherited normally (e.g., `log()`)
+- **Abstract properties**: stack `@property` on top, `@abstractmethod` below (order matters)
+- Abstract methods **can have a body** — subclasses access it via `super().method()`
+- ABCs catch missing methods **immediately** (`TypeError`) vs. `NotImplementedError` which only crashes when called
+
+## 8. Multiple Inheritance & Mixins
+- A class can inherit from **multiple parents**: `class Child(ParentA, ParentB)`
+- **Mixin** = small, focused class that adds one specific capability (logging, serialization, etc.)
+- Naming convention: `SomethingMixin`
+- **MRO (Method Resolution Order)**: Python searches child → left parent → right parent → ... → `object`
+- **List mixins before the main parent**: `class MyClass(MixinA, MainParent)`
+- Inspect MRO with `ClassName.__mro__`
+- Python uses **C3 linearization** to handle diamond inheritance correctly
+- Keep mixins small, stateless (no `__init__`), and focused on one responsibility
+## [Week 10 Notes](./Notes/W10_Notes.md)
+
+---
