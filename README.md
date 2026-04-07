@@ -228,7 +228,7 @@
 
 
 
-## (Week 9) Object-Oriented Programming — Core Concepts
+# (Week 9) Object-Oriented Programming — Core Concepts
 
 * **What is OOP:** A programming paradigm that organizes code around **objects** — bundles of data (attributes) and behavior (methods) — replacing procedural code where data and functions are scattered and unprotected.
 * **The Five Pillars:**
@@ -389,7 +389,7 @@
 
 ---
 
-# Inheritance & ABCs — Summary Bullet Points
+# WEEK 10: Inheritance & ABCs — Summary Bullet Points
 
 ## 1. Inheritance
 - A **subclass** (child) automatically receives all attributes and methods from a **superclass** (parent)
