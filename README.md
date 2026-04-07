@@ -451,3 +451,41 @@
 ## [Week 10 Notes](./Notes/W10_Notes.md)
 
 ---
+# Week 12: Web Development with Python and Flask — Study Guide Summary
+
+## Part I — HTTP and RESTful APIs
+*From `110_http_review.md`*
+
+- APIs, client-server model, statelessness
+- HTTP request/response structure, headers
+- Methods (`GET`, `POST`, `PUT`, `DELETE`) with safe/idempotent explanations
+- Status codes with a debugging workflow
+- JSON and `Content-Type`
+- URLs, resources, REST, CRUD mapping
+- Tools: Bruno, `curl` (every flag annotated), `requests`, `httpx`
+- Full working monitoring script example
+
+## Part II — How Flask Runs Your Application: WSGI
+*From `111_wsgi_overview.md`*
+
+- The layered architecture (client → Werkzeug → Flask → your code)
+- What "listening on a port" means at the OS/socket level
+- Concrete terminal output with every field labeled
+- Single-threaded vs. multi-threaded with ASCII timelines
+- The actual WSGI contract (`environ`, `start_response`) with a minimal working example
+- Reverse proxy (Nginx) — TLS, static files, load balancing, port binding
+- Dev vs. production comparison table
+
+## Part III — Flask Introduction
+*From `112_flask_intro.md`*
+
+- `Flask(__name__)` — what `__name__` evaluates to and why Flask needs it
+- Decorators explained from first principles (`@app.route()` internals)
+- Three ways to run the app, with every flag explained
+- Views: function-based and class-based (`MethodView`), `request.args` vs. `request.get_json()`
+- Routes: static, dynamic, URL converters, endpoints, `url_for()`
+- Blueprints: the monolithic file problem, namespace collisions, the package pattern
+- Relative imports: why the dot, why absolute imports fail, circular import avoidance
+- Application factory pattern and `current_app`
+- Templates: Jinja2, `render_template`, template inheritance, dictionary unpacking
+## [Week 12 Notes](./Notes/W12_Notes.md)
