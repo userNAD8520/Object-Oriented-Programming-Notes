@@ -221,12 +221,8 @@
 * **Warnings:** Used to alert users of deprecated features or potential issues without stopping execution.
 ## [Week 6 Notes](./Notes/W6_Notes.md)
 
-## Object Oriented Programming
-# OOP & UML — Bullet Point Summaries
 
 ---
-
-
 
 # (Week 9) Object-Oriented Programming — Core Concepts
 
